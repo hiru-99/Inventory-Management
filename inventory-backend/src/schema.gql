@@ -1,0 +1,48 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Stock {
+  id: Int!
+  quantity: Int!
+  location: String!
+  variant: ProductVariant
+}
+
+type ProductVariant {
+  id: Int!
+  name: String!
+  product: Product!
+  stocks: [Stock!]
+  sku: String
+  description: String
+}
+
+type Product {
+  id: Int!
+  name: String!
+  description: String
+  price: Float!
+  isActive: Boolean!
+  variants: [ProductVariant!]
+}
+
+type Query {
+  products: [Product!]!
+  product(id: Int!): Product!
+  variants(productId: Int!): [ProductVariant!]!
+  stocks(variantId: Int!): [Stock!]!
+  allStocks: [Stock!]!
+}
+
+type Mutation {
+  createProduct(name: String!, description: String, price: Float!): Product!
+  updateProduct(id: Int!, name: String, description: String, price: Float): Product!
+  removeProduct(id: Int!): Boolean!
+  createVariant(productId: Int!, name: String!, sku: String, description: String): ProductVariant!
+  updateVariant(id: Int!, name: String!, sku: String, description: String): ProductVariant!
+  deleteVariant(id: Int!): Boolean!
+  createStock(variantId: Int!, quantity: Int!, location: String): Stock!
+  updateStock(id: Int!, quantity: Int!, location: String): Stock!
+  deleteStock(id: Int!): Boolean!
+}
