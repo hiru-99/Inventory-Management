@@ -1,27 +1,17 @@
-// app/page.tsx
+
+'use client';
+import React from 'react';
 import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 
-export default function Home() {
+
+export default function ProductListPage() {
   return (
-    <div className="space-y-6">
-      <h2 className="text-xl font-semibold">Dashboard</h2>
-
-      <div className="grid grid-cols-3 gap-4">
-        <Link href="/products" className="p-4 bg-white rounded shadow">
-          <h3 className="font-bold">Products</h3>
-          <p className="text-sm text-slate-500">Manage products</p>
-        </Link>
-
-        <Link href="/variants" className="p-4 bg-white rounded shadow">
-          <h3 className="font-bold">Variants</h3>
-          <p className="text-sm text-slate-500">Manage product variants</p>
-        </Link>
-
-        <Link href="/stock" className="p-4 bg-white rounded shadow">
-          <h3 className="font-bold">Stock</h3>
-          <p className="text-sm text-slate-500">Manage stock</p>
-        </Link>
-      </div>
+  <div className="flex flex-col items-center justify-center min-h-screen py-20 bg-blue-50">
+      <h1 className="text-3xl font-bold mb-6">Welcome to Inventra</h1>
+        <Link href="/products/ViewProducts">
+        <Button size="lg" className="bg-blue-600 text-white hover:bg-blue-800">View Products</Button>
+      </Link>
     </div>
   );
 }
